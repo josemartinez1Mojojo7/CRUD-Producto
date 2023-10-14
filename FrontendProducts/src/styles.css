@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+  background: #8BD3DD;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #F3D2C1, #8BD3DD);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #F3D2C1, #8BD3DD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.title{
+  font-family: 'Autour One', 'Montserrat Alternates', sans-serif;
+}

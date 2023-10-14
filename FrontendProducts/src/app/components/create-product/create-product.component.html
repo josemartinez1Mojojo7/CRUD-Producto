@@ -1,0 +1,44 @@
+<div class="container mt-5">
+  <div class="row">
+      <div class="col-lg-6 offset-lg-3">
+          <div class="card px-5 box">
+              <div class="card-body text-center">
+                  <h4 class="title">{{titulo | uppercase}}</h4>
+              </div>
+              <form action="mt-3" [formGroup]="productoForm" (ngSubmit)="agregarProducto()" class="row">
+                  <div class="mb-3 col-md-12">
+                      <label class="form-label">Producto</label>
+                      <input type="text" formControlName="producto" class="form-control" placeholder="Ingrese Producto">
+                      <div class="text-danger" *ngIf="productoForm.get('producto')?.hasError('required') && productoForm.get('producto')?.touched">
+                          <span>El nombre del Producto <strong>es Obligatorio</strong> </span>
+                      </div>
+                  </div>
+                  <div class="mb-3 col-md-12">
+                      <label class="form-label">Categoria</label>
+                      <input type="text" formControlName="categoria" class="form-control" placeholder="Ingrese Categoria">
+                      <div class="text-danger" *ngIf="productoForm.get('categoria')?.hasError('required') && productoForm.get('categoria')?.touched">
+                          <span>La categoria del Producto <strong>es Obligatorio</strong> </span>
+                      </div>
+                  </div>
+                  <div class="mb-3 col-md-12">
+                    <label class="form-label">Precio</label>
+                    <input type="number" formControlName="precio" class="form-control" placeholder="Ingrese Precio">
+                    <div class="text-danger" *ngIf="productoForm.get('precio')?.hasError('required') && productoForm.get('precio')?.touched">
+                      <span>El precio del Producto <strong>es Obligatorio</strong> </span>
+                    </div>
+                  </div>
+                  <div class="mb-3 col-md-12">
+                      <label class="form-label">Imagen</label>
+                      <input type="text" formControlName="url" class="form-control" placeholder="Ingrese Url">
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <button type="button" class="form-control btn btn-secondary btn-lg" [routerLink]="'/'">Volver</button>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <button type="submit" [disabled]="productoForm.invalid" class="form-control btn btn-success btn-lg">Aceptar</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>

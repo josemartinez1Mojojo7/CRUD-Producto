@@ -1,0 +1,44 @@
+<div class="container mt-5" >
+  <div class="row">
+      <div class="col-lg-8 offset-lg-2">
+          <div class="card px-5 box">
+              <div class="card-body text-center px-0">
+                  <h3 class="title">Lista de Productos</h3>
+                  <button class="btn btn-primary float-end" [routerLink]="'/crear-producto'">
+                    <i class="fas fa-plus"></i> Nuevo
+                  </button>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Imagen</th>
+                            <th scope="col">Producto</th>
+                            <th scope="col">Categoria</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody *ngIf="listProducts.length>0" class="jus" >
+                        <tr *ngFor="let product of listProducts; let i = index">
+                            <td class="align-middle">{{i}}</td>
+                            <td class="align-middle">
+                              <img src="{{product.image ? product.image : '../../../assets/img-vacio.png'}}" width="100px" class="rounded" alt="foto_product">
+                            </td>
+                            <td class="align-middle">{{product.name}}</td>
+                            <td class="align-middle">{{product.category}}</td>
+                            <td class="align-middle">{{product.price | currency: 'USD'}}</td>
+                            <td class="align-middle">
+                                <i [routerLink]="['/editar-producto',product._id]" class="fas fa-edit text-info"></i>
+                                <i (click)="eliminarProducto(product._id)" class="fas fa-trash text-danger"></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h5 style="text-align: center; margin-top: 10px;" *ngIf="listProducts.length==0">No Hay Productos</h5>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
