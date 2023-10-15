@@ -1,0 +1,29 @@
+## Extencion para VSCode (REST Client)
+
+### Obteniendo todos los productos
+GET http://localhost:3000/api/products
+
+### Obteniendo un producto
+GET http://localhost:3000/api/products/65298f055eeee00accb7e4ab
+
+### Creando un producto
+POST http://localhost:3000/api/products
+Content-Type: application/json
+
+{
+    "name":"Juego Vajilla Completo X42",
+    "category":"Hogar, Muebles",
+    "price":22049,
+    "image": "https://http2.mlstatic.com/D_NQ_NP_799969-MLA71262114954_082023-O.webp"
+}
+
+### Actualizar un producto
+PUT  http://localhost:3000/api/products/652b334769ee2eab29dbe595
+Content-Type: application/json
+
+{
+    "price":21000
+}
+
+### Eliminando un producto
+DELETE  http://localhost:3000/api/products/652b2ecb69ee2eab29dbe584

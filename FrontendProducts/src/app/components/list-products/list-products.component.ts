@@ -11,6 +11,7 @@ import { ProductService } from 'src/app/services/product.service';
 export class ListProductsComponent {
 
   listProducts:Product[]=[];
+  product: any;
 
   constructor(private productService:ProductService, private toastr:ToastrService) { }
 
@@ -33,6 +34,10 @@ export class ListProductsComponent {
     },error=>{
       console.log(error);
     });
+  }
+
+  verProducto(product:any){
+    this.product=product;
   }
 
 }

@@ -32,6 +32,7 @@
                             <td class="align-middle">
                                 <i [routerLink]="['/editar-producto',product._id]" class="fas fa-edit text-info"></i>
                                 <i (click)="eliminarProducto(product._id)" class="fas fa-trash text-danger"></i>
+                                <i (click)="verProducto(product)" class="fas fa-solid fa-magnifying-glass text-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
                             </td>
                         </tr>
                     </tbody>
@@ -40,5 +41,43 @@
               </div>
           </div>
       </div>
+  </div>
+</div>
+
+<div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">{{product?.name}}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <div class="row w-100">
+          <div class="col-md-12 mb-3">
+            <img src="{{product?.image ? product?.image : '../../../assets/img-vacio.png'}}" width="300px" alt="foto_product">
+          </div>
+          <div class="col-md-6">
+            <p class="m-0"><strong>Categoria: </strong></p>
+            <p >{{product?.category}}</p>
+          </div>
+          <div class="col-md-6">
+            <p class="m-0"><strong>Precio: </strong></p>
+            <p>{{product?.price | currency: 'USD'}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer ">
+        <div class="row w-100">
+          <div class="col-md-6 text-start">
+            <p class="m-0"><strong>ID: </strong></p>
+            <p >{{product?._id}}</p>
+          </div>
+          <div class="col-md-6 text-end">
+            <p class="m-0"><strong>FechaCreacion: </strong></p>
+            <p>{{product?.fechaCreacion | date:'dd/MM/yyyy HH:mm:ss'}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
